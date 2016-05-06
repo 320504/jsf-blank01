@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+    xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core"  
+    xmlns:p="http://primefaces.org/ui"
+   	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      
+<h:head>
+</h:head>
+<h:body>
+<h:form>
+ <ui:include src="/WEB-INF/menu.xhtml" />
+
+      
+    <p:panel id="painelConsulta" header="Novo Cadastro">
+        <p:messages showDetail="false" autoUpdate="true" closable="true" />
+        <h:panelGrid columns="2" columnClasses="label, value" style="margin-bottom:10px" cellpadding="5">
+            <h:outputText value="Nome: *" />
+            <p:inputText value="#{petBean.nome}" required="true" label="Nome" id="nome"/>
+			
+			
+            <h:outputText value="Telefone: *" />
+            <p:inputMask value="#{petBean.telefone}" required="true" label="Telefone" mask="(99)9999-9999" size="14" maxlength="14" id="telefone"/>
+			
+			<h:outputText value="Endereço: *" />
+            <p:inputText value="#{petBean.endereco}" required="true" label="Endereco"  id="endereco"/>
+			
+           	<h:outputText value="Nome do Pet: *" />
+            <p:inputText value="#{petBean.nomePet}"  required="true" label="NomedoPet"  id="nomePet"/>
+            
+           	<h:outputText value="Tipo do Pet: *" />
+           	<p:inputText  value="#{petBean.tipoPet}"  required="true" label="Tipo" placeholder="ex:Cachorro"  id="tipoPet"/>	
+            
+           	<h:outputText value="Idade do Pet: " />
+            <p:spinner value="#{petBean.idadePet}" min="0" max="99"   label="IdadedoPet" id="idade" size="2" />	
+         	
+           
+            
+      	</h:panelGrid>
+      	<br/>
+      	<div align="center">
+					<p:button value="Voltar" styleClass="GrayButton" style="margin-right: 50px;"/>		  
+						       		<p:commandButton value="Limpar"  style="margin-right: 50px;" update="painelConsulta" action="#{petBean.limparForm}" process="@this" />
+									<p:commandButton value="Cadastrar"  action="#{petBean.cadastrar}"/>
+		</div>
+    </p:panel>
+ 		
+</h:form>	
+
+
+
+
+</h:body>
+</html>
